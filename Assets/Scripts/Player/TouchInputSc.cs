@@ -10,19 +10,22 @@ using UnityEngine;
 public class TouchInputSc : MonoBehaviour
 {
    
-
+    [SerializeField]
+    ShipMovement shipMovement;
     Vector2 touchPosition;
 
 
-    public Vector2 GetTouchPosition(){
+    Camera mainCamera;
 
-        return touchPosition;
+ 
+   
+
+   
+    void Start(){
 
 
-
-
+        mainCamera = Camera.main;
     }
-
     void Update(){
 
 
@@ -30,11 +33,12 @@ public class TouchInputSc : MonoBehaviour
         if(Input.touchCount!=0){
 
         
-            Touch lastTouch =  Input.GetTouch(Input.touchCount);
+          
 
-            touchPosition = lastTouch.position;
+            touchPosition =  Input.GetTouch(Input.touchCount-1).position;
+            shipMovement.MoveShip(mainCamera.ScreenToWorldPoint(touchPosition));
 
-
+            print(touchPosition);
 
         }
 
