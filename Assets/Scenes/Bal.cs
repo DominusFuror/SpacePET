@@ -14,6 +14,10 @@ public class Bal : MonoBehaviour
     void Update()
     {
         int a;
+
         int MAINB;
+
+        int SECONDBR;
+
     }
 }
