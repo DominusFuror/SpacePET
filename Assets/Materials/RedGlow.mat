@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: RedGlow
   m_Shader: {fileID: -6465566751694194690, guid: 35aac6d6a2e12ec488de22936386368f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
