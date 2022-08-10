@@ -18,6 +18,7 @@ public class EnemySpawningManager : MonoBehaviour
    
     private void Start()
     {
+        Application.targetFrameRate = 60;
         StartCoroutine(EnemySpawnCycle());
     }
     IEnumerator EnemySpawnCycle()
