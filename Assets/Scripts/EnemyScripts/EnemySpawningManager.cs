@@ -8,6 +8,7 @@ public class EnemySpawningManager : MonoBehaviour
     Vector3 rightSpawnPoint = new Vector3(-27, 40, 0);
     Vector3 leftSpawnPoint = new Vector3(27, 40, 0);
 
+    [SerializeField] GameObject eventSystem;
 
     [SerializeField] GameObject firstEnemy;
     [SerializeField] GameObject buffx2;
@@ -27,7 +28,7 @@ public class EnemySpawningManager : MonoBehaviour
         Instantiate(buffx2, new Vector3(-12, 40, 0), Quaternion.identity);
 
         #region First Pattern
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i++)
         {
             var temp = Instantiate(firstEnemy, rightSpawnPoint, Quaternion.identity);
             temp.GetComponent<EnemyBeh>().StartMove(1, 1);
@@ -40,10 +41,10 @@ public class EnemySpawningManager : MonoBehaviour
         }
         #endregion
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         Instantiate(buffx3, new Vector3(-8, 40, 0), Quaternion.identity);
         #region Second Pattern 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i++)
         {
 
             var temp = Instantiate(firstEnemy, rightSpawnPoint, Quaternion.identity);
@@ -57,10 +58,11 @@ public class EnemySpawningManager : MonoBehaviour
           
 
         }
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
 
         #endregion
         Instantiate(ultimateBuff, new Vector3(2, 40, 0), Quaternion.identity);
+        yield return new WaitForSeconds(2);
         #region Third Pattern 
         for (int i = 0; i < 12; i++)
         {
@@ -81,6 +83,9 @@ public class EnemySpawningManager : MonoBehaviour
 
         }
         #endregion
+        yield return new WaitForSeconds(6);
+        eventSystem.GetComponent<DialogManager>().StartDialog();
+        
 
         yield break;
     }

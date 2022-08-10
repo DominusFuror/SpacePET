@@ -6,12 +6,14 @@ public class PlayerFireManager : MonoBehaviour
 {
 
     [SerializeField] GameObject lowBullet, bigBullet;
+    [SerializeField] AudioSource AudioSource;
 
 
     int mode = 1;
 
     float attackRate = 1;
     float timer = 0;
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -21,21 +23,21 @@ public class PlayerFireManager : MonoBehaviour
 
            if(mode == 1)
             {
-                timer -= attackRate;
+         
 
                 Instantiate(lowBullet, this.transform.position, this.transform.rotation);
             }
            if ( mode == 2)
             {
 
-                timer -= attackRate;
+       
 
                 Instantiate(lowBullet, this.transform.position - Vector3.right, this.transform.rotation);
                 Instantiate(lowBullet, this.transform.position +  Vector3.right, this.transform.rotation);
             }
             if (mode == 3)
             {
-                timer -= attackRate;
+ 
 
                 Instantiate(lowBullet, this.transform.position + Vector3.right * 2, this.transform.rotation);
                 Instantiate(lowBullet, this.transform.position  , this.transform.rotation);
@@ -44,7 +46,7 @@ public class PlayerFireManager : MonoBehaviour
             if (mode == 4)
             {
 
-                timer -= attackRate;
+        
 
                 Instantiate(lowBullet, this.transform.position + Vector3.right * 2, this.transform.rotation);
                 Instantiate(lowBullet, this.transform.position, this.transform.rotation);
@@ -54,7 +56,8 @@ public class PlayerFireManager : MonoBehaviour
                 Instantiate(lowBullet, this.transform.position, Quaternion.Euler(0,0,-10));
                
             }
-
+            timer -= attackRate;
+            AudioSource.Play();
         }
 
 
