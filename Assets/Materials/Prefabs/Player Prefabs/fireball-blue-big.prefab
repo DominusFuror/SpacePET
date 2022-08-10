@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2585680297548599704}
   m_Layer: 0
   m_Name: fireball-blue-big
-  m_TagString: PlayerBullet
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -18,11 +18,11 @@ public class EnemyBeh : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("SD");
         if (collision.gameObject.CompareTag("playerBullet"))
         {
-
             Destroy(collision.gameObject);
+
+            
             animator.Play("EnemyDestroyAnimation");
 
         }
