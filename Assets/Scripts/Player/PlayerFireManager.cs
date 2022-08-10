@@ -33,6 +33,27 @@ public class PlayerFireManager : MonoBehaviour
                 Instantiate(lowBullet, this.transform.position - Vector3.right, this.transform.rotation);
                 Instantiate(lowBullet, this.transform.position +  Vector3.right, this.transform.rotation);
             }
+            if (mode == 3)
+            {
+                timer -= attackRate;
+
+                Instantiate(lowBullet, this.transform.position + Vector3.right * 2, this.transform.rotation);
+                Instantiate(lowBullet, this.transform.position  , this.transform.rotation);
+                Instantiate(lowBullet, this.transform.position - Vector3.right * 2, this.transform.rotation);
+            }
+            if (mode == 4)
+            {
+
+                timer -= attackRate;
+
+                Instantiate(lowBullet, this.transform.position + Vector3.right * 2, this.transform.rotation);
+                Instantiate(lowBullet, this.transform.position, this.transform.rotation);
+                Instantiate(lowBullet, this.transform.position - Vector3.right * 2, this.transform.rotation);
+
+                Instantiate(lowBullet, this.transform.position, Quaternion.Euler(0,0,10));
+                Instantiate(lowBullet, this.transform.position, Quaternion.Euler(0,0,-10));
+               
+            }
 
         }
 
@@ -45,11 +66,23 @@ public class PlayerFireManager : MonoBehaviour
 
         if (collision.gameObject.CompareTag("buffx2"))
         {
-
+            attackRate *= 0.6f;
             mode = 2;
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("buffx3"))
+        {
+            attackRate *= 0.6f;
+            mode = 3;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("ultimateBuff"))
+        {
 
+            mode = 4;
+            attackRate *= 0.6f;
+            Destroy(collision.gameObject);
+        }
 
 
     }

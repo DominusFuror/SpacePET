@@ -9,6 +9,8 @@ public class EnemyBeh : MonoBehaviour
 
     Vector3 velocity;
 
+    int hp = 2;
+
     private void Start()
     {
 
@@ -20,10 +22,15 @@ public class EnemyBeh : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("playerBullet"))
         {
+            hp--;
             Destroy(collision.gameObject);
-            ScoreCounter.GetScoreCounter().AddScore(20);
+            if (hp <= 0)
+            {
+              
+                ScoreCounter.GetScoreCounter().AddScore(20);
 
-            animator.Play("EnemyDestroyAnimation");
+                animator.Play("EnemyDestroyAnimation");
+            }
 
         }
     }

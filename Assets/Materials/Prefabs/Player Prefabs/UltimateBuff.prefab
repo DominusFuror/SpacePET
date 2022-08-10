@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7328542050820490485}
   m_Layer: 0
   m_Name: UltimateBuff
-  m_TagString: buffx3
+  m_TagString: ultimateBuff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

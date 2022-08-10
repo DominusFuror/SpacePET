@@ -35,13 +35,13 @@ public class EnemySpawningManager : MonoBehaviour
             temp = Instantiate(firstEnemy, leftSpawnPoint, Quaternion.identity);
             temp.GetComponent<EnemyBeh>().StartMove(-1 ,1 );
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.8f);
 
         }
         #endregion
 
         yield return new WaitForSeconds(1);
-
+        Instantiate(buffx3, new Vector3(-8, 40, 0), Quaternion.identity);
         #region Second Pattern 
         for (int i = 0; i < 8; i++)
         {
@@ -52,7 +52,7 @@ public class EnemySpawningManager : MonoBehaviour
             temp = Instantiate(firstEnemy, leftSpawnPoint, Quaternion.identity);
             temp.GetComponent<EnemyBeh>().StartMove(-1, 2);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.8f);
 
           
 
@@ -60,8 +60,9 @@ public class EnemySpawningManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         #endregion
+        Instantiate(ultimateBuff, new Vector3(2, 40, 0), Quaternion.identity);
         #region Third Pattern 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 12; i++)
         {
 
             var temp = Instantiate(firstEnemy, rightSpawnPoint, Quaternion.identity);
